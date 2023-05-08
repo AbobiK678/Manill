@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="the_company@localhost" read-only="true" uuid="4e438f34-e3ca-49cb-9000-55c8f9a86557">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <isolation>1</isolation>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/the_company</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

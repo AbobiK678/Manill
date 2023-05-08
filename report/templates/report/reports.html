@@ -1,0 +1,31 @@
+{% extends 'report/layout.html' %}
+{% load static %}
+
+{% block title %} Отчёты {% endblock %}
+
+{% block content %}
+    <h1>Отчёты</h1>
+    <p>Отчёты</p>
+    <table><!--This is a new description-->
+        <thead class="thead-dark">
+        </thead>
+        <tbody>
+            {% for the_company in the_companies %}
+            <tr>
+                <th scope="row">{{ the_company.company_id }}</th>
+                {% if the_company.img_company %}
+                    <td>
+                        <img src="{{ the_company.img_company.url }}">
+                    </td>
+                {% else %}
+                    <td>
+                        <img src="{% static 'report/img/icon.png' %}">
+                    </td>
+                {% endif %}
+                <td>{{ the_company.name_company }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!--End table-->
+{% endblock %}
