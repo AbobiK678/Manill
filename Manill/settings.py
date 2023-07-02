@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&1(p^!$7=fu%)4ri$f6v@$b!gmi*iky*myeo&b_c#@)$@yr(ar'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Режим отладки
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']  # Адресс хоста
 
 # Application definition
 
@@ -125,5 +125,6 @@ STATICFILES_DIR = []
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/report/static/report/img/') # Путь в которые сохраняются картинки либо же заменяются
-MEDIA_URL = '/report/static/report/img/' # Путь из которого берутся картинки
+MEDIA_ROOT = os.path.join(BASE_DIR,
+                          '/report/static/report/img/')  # Путь в которые сохраняются картинки либо же заменяются
+MEDIA_URL = '/report/static/report/img/'  # Путь из которого берутся картинки

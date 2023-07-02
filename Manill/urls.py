@@ -18,7 +18,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-
 from Manill import settings
 from report.views import *
 
@@ -27,3 +26,4 @@ urlpatterns = [
     path('', include('report.urls'))
 ]
 
+handler404 = pageNotFound  # Подключение страницы при ошибки страница не найдена
