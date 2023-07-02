@@ -8,7 +8,6 @@ urlpatterns = [  # URLS Пути страниц
     path('', views.home),
     path('report', views.report),
     path('reports', views.reports),
-    path('cats/<str:cat>/', views.cats),
     path('about', views.about)
 ]
 

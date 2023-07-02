@@ -2,34 +2,33 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import TheCompany
 
-menu = ["Главная", "Отчёты", "Категории", "О нас!", "Обратная связь"]
+menu = ["Главная", "Отчёты", "О нас!", "Обратная связь"]
 
 
-def home(request):  # Домашня страница
+def home(request):
     return render(request, 'report/home.html', {'menu': menu, 'title': 'Главная страница'})
 
 
-def report(request):  # Страница отчёта
+def report(request):
     the_companies = TheCompany.objects.all()
     context = {'the_companies': the_companies}
     return render(request, 'report/report.html', context)
 
 
-def cats(request, cat):  # Страница категорий
-    if request.GET:
-        print(request.GET)
-    return HttpResponse(f"<h1>Отчёты по категориям</h1><p>{cat}</p>")
+#def category(request, catid):
+#    if request.POST:
+#        print(request.POST)
 
 
-def reports(request):  # Страница отчётов
+def reports(request):
     the_companies = TheCompany.objects.all()
     context = {'the_companies': the_companies}
     return render(request, 'report/reports.html', context)
 
 
-def about(request):  # Страница "О нас!"
+def about(request):
     return render(request, 'report/about.html', {'menu': menu, 'title': 'О нас!'})
 
 
-def pageNotFound(request, exception):  # Страница ошибки "Страница не найдена"
-    return HttpResponseNotFound('<h1>Отчёт не найден</h1>')
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('<h1>Отчёт не найден</h2>')
