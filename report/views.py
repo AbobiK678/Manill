@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import TheCompany
 
-menu = ["Главная", "Отчёты", "О нас!", "Обратная связь"]
+menu = ["Главная", "Отчёты", "Категории", "О нас!", "Обратная связь"]
 
 
 def home(request):
@@ -15,9 +15,10 @@ def report(request):
     return render(request, 'report/report.html', context)
 
 
-#def category(request, catid):
-#    if request.POST:
-#        print(request.POST)
+def cats(request, catid):
+    if request.GET:
+        print(request.GET)
+    return HttpResponse(f"<h1>Отчёты по категориям</h1><p>{catid}</p>")
 
 
 def reports(request):
