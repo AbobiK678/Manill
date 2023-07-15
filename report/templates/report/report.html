@@ -10,7 +10,7 @@
         <thead class="thead-dark">
         </thead>
         <tbody>
-            {% for the_company in the_companies %}
+        {% for the_company in posts %}
             <tr>
                 <th scope="row">{{ the_company.company_id }}</th>
                 {% if the_company.img_company %}
@@ -24,7 +24,7 @@
                 {% endif %}
                 <td>{{ the_company.name_company }}</td>
             </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
     <!--End table-->

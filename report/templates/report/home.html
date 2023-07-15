@@ -1,8 +1,24 @@
 {% extends 'report/layout.html' %}
-
-{% block title %} Главная страница {% endblock %}
-
 {% block content %}
-    <h1>Главная страница</h1>
-    <p>Главная страница</p>
+    <ul class="list-articles">
+        {% for p in posts %}
+            <table>
+                <li>
+                    <tr>
+                        <th><img src="{{ p.img_company.url }}"></th>
+                        <th><h2>{{ p.name_company }}</h2></th>
+                    </tr> <!--ряд с ячейками заголовков-->
+                    <tr>
+                        <td>
+                            {% autoescape off %} <!--Экранирование выключенно-->
+                                <p>{{ p.discrip_company|linebreaks|truncatewords:50 }}</p> <!--Фильтры шаблонов-->
+                            {% endautoescape %}
+                        </td>
+                    </tr> <!--ряд с ячейками тела таблицы-->
+                    <div class="clear"></div>
+                    <p class="link-read-post"><a href="#">Читать отчёт</a></p>
+                </li>
+            </table>
+        {% endfor %}
+    </ul>
 {% endblock %}

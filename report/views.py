@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from .models import TheCompany
+from .models import *
 
 menu = ["Главная", "Отчёты", "О нас!", "Обратная связь"]
 
 
 def home(request):
-    return render(request, 'report/home.html', {'menu': menu, 'title': 'Главная страница'})
+    the_companies = TheCompany.objects.all()
+    return render(request, 'report/home.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
 
 
 def report(request):
     the_companies = TheCompany.objects.all()
-    context = {'the_companies': the_companies}
-    return render(request, 'report/report.html', context)
+    return render(request, 'report/report.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
+
+
+def reports(request):
+    the_companies = TheCompany.objects.all()
+    return render(request, 'report/reports.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
 
 
 def category(request, catid):
@@ -28,12 +33,6 @@ def archive(request, year):
     # handler403 = доступ запрещен
     # handler400 = невозможно обработать запрос
     return HttpResponse(f'<h1>Отчёт за год </h1><p>{year}</p>')
-
-
-def reports(request):
-    the_companies = TheCompany.objects.all()
-    context = {'the_companies': the_companies}
-    return render(request, 'report/reports.html', context)
 
 
 def about(request):
