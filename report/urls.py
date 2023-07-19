@@ -5,12 +5,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [  # URLS Пути страниц
-    path('', views.home), # !!!!!!!!!Поправить redirect!!!!!!!!!!!!!
-    path('cats/<str:catid>', views.category),
-    re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive),
-    path('report', views.report),
-    path('reports', views.reports),
-    path('about', views.about)
+    path('', views.home, name='home'),  # !!!!!!!!!Поправить redirect!!!!!!!!!!!!!
+    path('cats/<str:catid>', views.category, name='category'),
+    re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive, name='archive'),
+    path('report', views.report, name='report'),
+    path('reports', views.reports, name='reports'),
+    path('about', views.about, name='about'),
 ]
 
 if settings.DEBUG:

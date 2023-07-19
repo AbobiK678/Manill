@@ -2,22 +2,33 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .models import *
 
-menu = ["Главная", "Отчёты", "О нас!", "Обратная связь"]
+menu = [{'title': "Все отчёты", 'url_name': 'reports'},
+        # {'title': "Архив", 'url_name': 'archive'},
+        {'title': "О нас!", 'url_name': 'about'}]
 
 
 def home(request):
     the_companies = TheCompany.objects.all()
-    return render(request, 'report/home.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
+    context = {'posts': the_companies,
+               'menu': menu,
+               'title': 'Главная страница'}
+    return render(request, 'report/home.html', context=context)
 
 
 def report(request):
     the_companies = TheCompany.objects.all()
-    return render(request, 'report/report.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
+    context = {'posts': the_companies,
+               'menu': menu,
+               'title': 'Отчёт'}
+    return render(request, 'report/report.html', context=context)
 
 
 def reports(request):
     the_companies = TheCompany.objects.all()
-    return render(request, 'report/reports.html', {'posts': the_companies, 'menu': menu, 'title': 'Главная страница'})
+    context = {'posts': the_companies,
+               'menu': menu,
+               'title': 'Отчёты'}
+    return render(request, 'report/reports.html', context=context)
 
 
 def category(request, catid):
@@ -36,7 +47,9 @@ def archive(request, year):
 
 
 def about(request):
-    return render(request, 'report/about.html', {'menu': menu, 'title': 'О нас!'})
+    context = {'menu': menu,
+               'title': 'О нас!'}
+    return render(request, 'report/about.html', context=context)
 
 
 def pageNotFound(request, exception):
