@@ -419,7 +419,7 @@ ul.lang-list li a:hover {
 
 .list-topic ol li {
     display: list-item;
-    margin: 10px 10px 0 0px;
+    margin: 10px 10px 0 0;
     padding: 0 0 0 10px;
 }
 

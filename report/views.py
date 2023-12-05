@@ -15,7 +15,7 @@ def home(request):
     return render(request, 'report/home.html', context=context)
 
 
-def report(request):
+def report(request, company_id):
     the_companies = TheCompany.objects.all()
     context = {'posts': the_companies,
                'menu': menu,

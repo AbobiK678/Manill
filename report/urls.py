@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [  # URLS Пути страниц
     path('', views.home, name='home'),  # !!!!!!!!!Поправить redirect!!!!!!!!!!!!!
-    path('cats/<str:catid>', views.category, name='category'),
+    # path('cats/<str:catid>', views.category, name='category'),
     re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive, name='archive'),
-    path('report', views.report, name='report'),
+    path('report/<int:company_id>/', views.report, name='report'),
     path('reports', views.reports, name='reports'),
     path('about', views.about, name='about'),
 ]
